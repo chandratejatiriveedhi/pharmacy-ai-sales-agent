@@ -1,0 +1,74 @@
+{
+  "name": "pharmacy-ai-sales-agent",
+  "version": "1.0.0",
+  "description": "AI-powered pharmacy sales agent with WhatsApp/Telegram integration",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "jest --config jest.e2e.config.js",
+    "db:setup": "node scripts/setup-database.js",
+    "db:seed": "node scripts/seed-database.js",
+    "db:migrate": "node scripts/migrate.js",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/"
+  },
+  "keywords": [
+    "pharmacy",
+    "ai",
+    "sales-agent",
+    "whatsapp",
+    "telegram",
+    "n8n",
+    "nodejs",
+    "postgresql",
+    "openai"
+  ],
+  "author": "Chandra Teja Tiriveedhi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "pgvector": "^0.1.6",
+    "dotenv": "^16.3.1",
+    "axios": "^1.5.0",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "winston": "^3.10.0",
+    "node-telegram-bot-api": "^0.63.0",
+    "whatsapp-web.js": "^1.22.2",
+    "openai": "^4.12.4",
+    "uuid": "^9.0.1",
+    "moment": "^2.29.4",
+    "joi": "^17.10.2",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "rate-limiter-flexible": "^3.0.8",
+    "bull": "^4.11.3",
+    "redis": "^4.6.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.49.0",
+    "prettier": "^3.0.3",
+    "@types/jest": "^29.5.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chandratejatiriveedhi/pharmacy-ai-sales-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chandratejatiriveedhi/pharmacy-ai-sales-agent/issues"
+  },
+  "homepage": "https://github.com/chandratejatiriveedhi/pharmacy-ai-sales-agent#readme"
+}
