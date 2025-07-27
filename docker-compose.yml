@@ -15,6 +15,11 @@ services:
     networks:
       - pharmacy_network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pharmacy_user -d pharmacy_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   # Redis for caching and job queues
   redis:
@@ -27,6 +32,11 @@ services:
     networks:
       - pharmacy_network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
 
   # Main application
   app:
@@ -35,13 +45,26 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
       - DATABASE_URL=postgresql://pharmacy_user:pharmacy_pass@postgres:5432/pharmacy_db
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=pharmacy_db
+      - DB_USER=pharmacy_user
+      - DB_PASSWORD=pharmacy_pass
       - REDIS_URL=redis://redis:6379
       - PORT=3000
+      - LOG_LEVEL=debug
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - WHATSAPP_ACCESS_TOKEN=${WHATSAPP_ACCESS_TOKEN}
+      - ENABLE_TELEGRAM=${ENABLE_TELEGRAM:-true}
+      - ENABLE_WHATSAPP=${ENABLE_WHATSAPP:-false}
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     volumes:
       - ./logs:/app/logs
       - ./uploads:/app/uploads
@@ -72,7 +95,8 @@ services:
       - DB_POSTGRESDB_USER=pharmacy_user
       - DB_POSTGRESDB_PASSWORD=pharmacy_pass
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     volumes:
       - n8n_data:/home/node/.n8n
       - ./n8n-workflows:/home/node/.n8n/workflows:ro
