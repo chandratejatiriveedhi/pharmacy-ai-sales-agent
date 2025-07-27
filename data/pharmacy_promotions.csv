@@ -1,0 +1,16 @@
+promotion_id,name,description,type,category,start_date,end_date,discount_percentage,discount_amount,min_purchase_amount,max_discount_amount,applicable_products,applicable_categories,customer_segments,usage_limit_per_customer,total_usage_limit,current_usage,status,created_by,created_date
+PROMO-001,Summer Health Boost,Get 15% off all vitamins and supplements,percentage,category,2025-06-01,2025-08-31,15.0,,50.0,25.0,"","Vitamins,Supplements",all,3,1000,234,active,admin,2025-05-15
+PROMO-002,Pain Relief Bundle,Buy 2 pain relief products get 1 free,buy_x_get_y,product,2025-07-01,2025-09-30,,,30.0,,"PROD-001,PROD-015,PROD-023","Pain Relief",all,2,500,87,active,admin,2025-06-20
+PROMO-003,Senior Citizen Discount,10% discount for customers 65+,percentage,customer_segment,2025-01-01,2025-12-31,10.0,,,15.0,"","",seniors,1,9999,456,active,admin,2025-01-01
+PROMO-004,New Customer Welcome,$5 off first purchase over $25,fixed_amount,customer_segment,2025-01-01,2025-12-31,,5.0,25.0,5.0,"","",new_customers,1,2000,123,active,admin,2025-01-01
+PROMO-005,Prescription Loyalty,Earn double loyalty points on prescriptions,loyalty_multiplier,category,2025-07-15,2025-12-31,,,,,,"Prescription Medications",loyalty_members,5,9999,678,active,admin,2025-07-10
+PROMO-006,Cold & Flu Season,20% off cold and flu medications,percentage,subcategory,2025-10-01,2025-03-31,20.0,,20.0,10.0,"","Cold & Flu",all,2,800,0,scheduled,admin,2025-07-20
+PROMO-007,Diabetes Care Package,Special pricing on diabetes management products,percentage,category,2025-07-01,2025-12-31,12.0,,75.0,30.0,"","Diabetes Care",diabetic_customers,3,600,145,active,admin,2025-06-25
+PROMO-008,Back to School Health,Health essentials for students and families,percentage,mixed,2025-08-01,2025-09-15,18.0,,40.0,20.0,"PROD-005,PROD-012,PROD-034","First Aid,Vitamins",all,2,400,67,active,admin,2025-07-25
+PROMO-009,Heart Health Month,Cardiovascular health products discount,percentage,category,2025-02-01,2025-02-28,25.0,,60.0,25.0,"","Cardiovascular",all,1,300,298,expired,admin,2025-01-20
+PROMO-010,Mother's Day Special,Beauty and wellness products for mom,percentage,category,2025-05-01,2025-05-15,15.0,,35.0,15.0,"","Beauty,Wellness",all,1,200,187,expired,admin,2025-04-20
+PROMO-011,Allergy Season Relief,Allergy medication discount package,percentage,subcategory,2025-03-01,2025-06-30,22.0,,30.0,12.0,"","Allergy Relief",all,3,500,445,expired,admin,2025-02-25
+PROMO-012,Summer Sun Protection,Sunscreen and sun care products,fixed_amount,category,2025-06-15,2025-08-31,,3.0,15.0,3.0,"","Sun Care",all,2,300,89,active,admin,2025-06-10
+PROMO-013,Loyalty Plus Weekend,Extra points and discounts for loyalty members,mixed,customer_segment,2025-07-26,2025-07-28,10.0,,,10.0,"","",loyalty_members,1,1000,0,scheduled,admin,2025-07-24
+PROMO-014,Generic Medication Push,Promote generic alternatives with savings,percentage,type,2025-07-01,2025-12-31,30.0,,25.0,20.0,"","",all,5,1500,234,active,admin,2025-06-28
+PROMO-015,Monthly Prescription Refill,Discount for early prescription refills,percentage,service,2025-07-01,2025-07-31,8.0,,100.0,15.0,"","Prescription Medications",regular_customers,1,400,156,active,admin,2025-06-30
